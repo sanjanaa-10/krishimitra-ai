@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Sprout } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 export function Navbar() {
+  const navigate = useNavigate()
+
   return (
     <header className="sticky top-0 z-50 bg-bg/80 backdrop-blur-md border-b border-black/5">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -21,10 +24,17 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button variant="ghost" className="text-ink hover:bg-black/5 text-sm">
+          <Button
+            variant="ghost"
+            className="text-ink hover:bg-black/5 text-sm"
+            onClick={() => navigate("/login")}
+          >
             Log in
           </Button>
-          <Button className="bg-primary hover:bg-primary-dark text-white rounded-full text-sm px-5">
+          <Button
+            className="bg-primary hover:bg-primary-dark text-white rounded-full text-sm px-5"
+            onClick={() => navigate("/register")}
+          >
             Get Started
           </Button>
         </div>
